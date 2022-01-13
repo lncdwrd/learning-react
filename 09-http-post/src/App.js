@@ -24,12 +24,14 @@ function App() {
 
       const loadedMovies = [];
 
-      Object.keys(data).forEach((key) => loadedMovies.push({
-        id: key,
-        title: data[key].title,
-        openingText: data[key].openingText,
-        releaseDate: data[key].releaseDate
-      }));
+      Object.keys(data).forEach((key) =>
+        loadedMovies.push({
+          id: key,
+          title: data[key].title,
+          openingText: data[key].openingText,
+          releaseDate: data[key].releaseDate,
+        })
+      );
 
       setMovies(loadedMovies);
     } catch (error) {
@@ -48,8 +50,8 @@ function App() {
       method: 'POST',
       body: JSON.stringify(movie),
       headers: {
-        'Content-type': 'application/json'
-      }
+        'Content-type': 'application/json',
+      },
     });
 
     const data = await response.json();
